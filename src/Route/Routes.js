@@ -6,7 +6,7 @@ import Splash from '../Screens/Main/SplashScreen/Splash';
 import {useSelector} from 'react-redux';
 import {useEffect, useState} from 'react';
 const Stack = createStackNavigator();
-
+// ====
 const Routes = () => {
   const userlogin = useSelector(state=>state.userlogin);
   console.log("=====>data", userlogin)
