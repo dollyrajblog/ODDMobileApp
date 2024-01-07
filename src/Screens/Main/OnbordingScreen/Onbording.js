@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -7,30 +7,34 @@ import {Onbording_Show} from '../../../redux/Action/action';
 const slides = [
   {
     key: 1,
-    title: 'Customise Your Bussiness',
+    title: 'Customise Your \nBussiness',
     text: 'Description.\nSay something cool',
-    backgroundColor: '#59b2ab',
+    img: require('../../../assets/images/bussiness.png'),
   },
   {
     key: 2,
-    title: 'Stock by Brand',
+    title: 'Stock by \nBrand',
     text: 'Other cool stuff',
-    backgroundColor: '#febe29',
+    img: require('../../../assets/images/branding.png'),
   },
   {
     key: 3,
-    title: 'Stock by Category',
+    title: 'Stock by \nCategory',
     text: "I'm already out of descriptions\nLorem ipsum bla bla bla",
-    backgroundColor: '#22bcb5',
+    img: require('../../../assets/images/custmer.png'),
   },
 ];
 const Onbording = () => {
   const dispatch = useDispatch();
   _renderItem = ({item}) => {
     return (
-      <View style={[styles.slide, {backgroundColor: item.backgroundColor}]}>
+      <View style={[styles.slide]}>
+        <Image
+          source={item.img}
+          style={{height: 320, width: 320}}
+          resizeMode="cover"
+        />
         <Text style={styles.title}>{item.title}</Text>
-        {/* <Text style={styles.text}>{item.text}</Text> */}
       </View>
     );
   };
@@ -44,6 +48,33 @@ const Onbording = () => {
       renderItem={_renderItem}
       data={slides}
       onDone={_onDone}
+      activeDotStyle={{
+        backgroundColor: '#22bcb5',
+        height: 8,
+        width: 18,
+        marginTop: -180,
+      }}
+      dotStyle={{
+        backgroundColor: 'grey',
+        height: 8,
+        width: 8,
+        marginTop: -180,
+      }}
+      renderPrevButton={() => (
+        <Text style={{fontSize: 16, color: '#00000090', fontWeight: '600'}}>
+          Skip
+        </Text>
+      )}
+      renderDoneButton={() => (
+        <Text style={{fontSize: 16, color: '#22bcb5', fontWeight: '600'}}>
+          Done
+        </Text>
+      )}
+      renderNextButton={() => (
+        <Text style={{fontSize: 16, color: '#00000090', fontWeight: '600'}}>
+          Next
+        </Text>
+      )}
     />
   );
 };
@@ -54,12 +85,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#fff',
   },
   title: {
-    fontSize: 30,
-    paddingHorizontal: 24,
+    fontSize: 24,
+    padding: 20,
     textAlign: 'center',
-    color: '#000',
+    color: '#02796e',
     fontWeight: '600',
   },
   text: {

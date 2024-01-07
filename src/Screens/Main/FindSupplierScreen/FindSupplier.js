@@ -1,9 +1,12 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
-const FindSupplier = () => {
+import CustomHeader from '../../../componets/CustomHeader/CustomHeader'
+const FindSupplier = ({navigation}) => {
   return (
     <SafeAreaView>
+      <CustomHeader navigation={navigation}
+      label={"Find Supplier"}
+      />
     <View>
       <Text>FindSupplier</Text>
     </View>

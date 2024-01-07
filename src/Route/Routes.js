@@ -11,10 +11,10 @@ const Routes = () => {
   const userlogin = useSelector(state => state.userlogin);
   const isShow = useSelector(state => state.showOnboarding);
   const dispatch = useDispatch();
+  console.log('===>data', userlogin);
   const [isloading, setIsLoading] = useState(true);
   const CheckonBoarding = async () => {
     const data = await AsyncStorage.getItem('showOnboarding');
-    console.log('===>data', data, JSON.parse(data));
     if (JSON.parse(data)) {
       dispatch(Onbording_Show(false));
     }
