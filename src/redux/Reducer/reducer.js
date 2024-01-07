@@ -1,6 +1,7 @@
-import { USER_LOGIN } from "../Action/action";
+import { USER_LOGIN,SHOW_ONBORDINNG } from "../Action/action";
 const initialState = {
   userlogin: false,
+  showOnboarding: true,
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -9,6 +10,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         userlogin: action.payload,
       };
+      case SHOW_ONBORDINNG:
+        return {
+          ...state,
+          showOnboarding: action.payload,
+        };
     default:
       return state;
   }

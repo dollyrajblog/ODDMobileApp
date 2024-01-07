@@ -1,24 +1,35 @@
 import MainStack from './MainStack';
 import AuthStack from './AuthStack';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
 import Splash from '../Screens/Main/SplashScreen/Splash';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {useEffect, useState} from 'react';
-const Stack = createStackNavigator();
-
+import Onbording from '../Screens/Main/OnbordingScreen/Onbording';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Onbording_Show} from '../redux/Action/action';
 const Routes = () => {
-  const userlogin = useSelector(state=>state.userlogin);
-  console.log("=====>data", userlogin)
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const userlogin = useSelector(state => state.userlogin);
+  const isShow = useSelector(state => state.showOnboarding);
+  const dispatch = useDispatch();
   const [isloading, setIsLoading] = useState(true);
+  const CheckonBoarding = async () => {
+    const data = await AsyncStorage.getItem('showOnboarding');
+    console.log('===>data', data, JSON.parse(data));
+    if (JSON.parse(data)) {
+      dispatch(Onbording_Show(false));
+    }
+  };
   useEffect(() => {
+    CheckonBoarding();
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
   }, []);
   if (isloading) {
     return <Splash />;
+  }
+  if (isShow) {
+    return <Onbording />;
   }
   return (
     <NavigationContainer>
