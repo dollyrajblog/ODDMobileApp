@@ -15,4 +15,5 @@ export const ImagePath = {
   SWIMWEAR: require('../assets/images/swimwear.png'),
   WARDROBE: require('../assets/images/wardrobe.png'),
   WORKOUT: require('../assets/images/workout-clothes.png'),
+  TSHIRT :require("../assets/images/T-shirt.jpeg")
 };

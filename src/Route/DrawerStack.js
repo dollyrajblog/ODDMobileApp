@@ -9,6 +9,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useDispatch} from 'react-redux';
 import {User_Login} from '../redux/Action/action';
+import {Colors, Fonts} from '../Custom/customStyle';
 const {height, width} = Dimensions.get('screen');
 const drawerItems = [
   {screenName: 'Home', label: 'Home', iconName: 'home'},
@@ -28,7 +29,7 @@ const DrawerStack = props => {
             alignItems: 'center',
           }}>
           <View style={styles.topView}>
-            <Icon name="user" size={24} color= "#02796e"/>
+            <Icon name="user" size={24} color={Colors.APP_THEAM} />
           </View>
           <Text style={styles.txt}>{`Click here by \nLOGIN / SIGN UP`}</Text>
           <Icon name="chevron-right" color="#fff" size={16} />
@@ -42,7 +43,7 @@ const DrawerStack = props => {
               styles.drawerItem,
               {
                 backgroundColor:
-                  props?.state?.index == index ?  "#02796e" : null,
+                  props?.state?.index == index ? Colors.APP_THEAM : null,
               },
             ]}
             onPress={() => props.navigation.navigate(item.screenName)}>
@@ -55,8 +56,8 @@ const DrawerStack = props => {
               style={{
                 color: props?.state?.index == index ? '#fff' : '#000',
                 fontSize: 16,
-                fontWeight: '600',
                 paddingLeft: 8,
+                fontFamily: Fonts.ROBOTO_MEDIUM,
               }}>
               {item.label}
             </Text>
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
   },
   header: {
     height: height * 0.15,
-    backgroundColor:  "#02796e",//'#7fc0b7',
+    backgroundColor: Colors.APP_THEAM,
     paddingHorizontal: 20,
     justifyContent: 'center',
   },
@@ -96,5 +97,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 14,
     fontWeight: '600',
+    fontFamily: Fonts.Poppines_Medium,
   },
 });

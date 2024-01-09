@@ -1,9 +1,10 @@
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
+import { Fonts } from '../../../Custom/customStyle';
 
 const RenderItem = ({item}) => {
   return (
-    <View style={{margin: 10, alignItems: 'center', width: 100}}>
+    <View style={{margin: 10, alignItems: 'center', width: 60}}>
       <TouchableOpacity style={styles.view}>
         <Image source={item.image} style={styles.img} />
       </TouchableOpacity>
@@ -22,16 +23,16 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     color: '#000',
     fontSize: 14,
-    fontWeight: '400',
+    fontFamily:Fonts.Poppines_Regular ,
   },
   view: {
-    height: 100,
-    width: 100,
+    height: 55,
+    width: 55,
     borderRadius: 100,
-    backgroundColor: '#b4d1cd',
+    backgroundColor: '#cfe4bf', //#b4d1cd',
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 3,
   },
-  img: {height: 60, width: 60, tintColor: '#000'},
+  img: {height: 30, width: 30, tintColor: '#000'},
 });

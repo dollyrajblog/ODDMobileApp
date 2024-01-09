@@ -10,10 +10,10 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/Fontisto';
-import {ImagePath} from '../../../Custom/ImagePath';
 import {User_Login} from '../../../redux/Action/action';
 import {useDispatch} from 'react-redux';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {Colors, Fonts} from '../../../Custom/customStyle';
 const {height, width} = Dimensions.get('screen');
 const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -65,36 +65,39 @@ const Login = ({navigation}) => {
             }}>
             <Text
               style={{
-                color: '#02796e', //'#7fc0b7',
+                color: Colors.APP_COLOR,
                 fontSize: 16,
-                fontWeight: '600',
                 paddingRight: 4,
+                fontFamily:Fonts.Poppines_Medium
               }}>
               Skip
             </Text>
-            <Icon name="angle-dobule-right" color={'#02796e'} />
+            <Icon name="angle-dobule-right" color={Colors.APP_COLOR} />
           </TouchableOpacity>
           <Text
             style={{
               paddingHorizontal: 16,
               fontSize: 18,
-              fontWeight: '600',
-              color: '#02796e',
+              color: Colors.APP_COLOR,
+              fontFamily:Fonts.Poppines_SemiBold
             }}>
             Welcome to
           </Text>
-          <View style={{backgroundColor: '#b4d1cd'}}>
+          <View style={{backgroundColor:'#b4d1cd'}}>
             <View
               style={{
                 height: height * 0.25,
                 justifyContent: 'center',
                 backgroundColor: '#fff',
                 borderBottomLeftRadius: 90,
-                // paddingLeft: 48,
               }}>
               <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                 <Text style={styles.logoView}>O</Text>
-                <Text style={[styles.logoView, {backgroundColor: '#02796e'}]}>
+                <Text
+                  style={[
+                    styles.logoView,
+                    {backgroundColor: Colors.APP_COLOR},
+                  ]}>
                   D
                 </Text>
                 <Text style={styles.logoView}>D</Text>
@@ -102,31 +105,13 @@ const Login = ({navigation}) => {
               <Text
                 style={{
                   marginTop: 16,
-                  color: '#02796e',
+                  color: Colors.APP_COLOR,
                   fontSize: 28,
-                  fontWeight: '500',
                   textAlign: 'center',
+                  fontFamily:Fonts.Poppines_SemiBold
                 }}>
                 Order Design Dispatch
               </Text>
-              {/* <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
-                <Text style={styles.logoView}>O</Text>
-                <Text style={styles.logotxt}>Order</Text>
-              </View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Text style={[styles.logoView, {backgroundColor:  "#02796e"}]}>
-                  D
-                </Text>
-                <Text style={styles.logotxt}>Design</Text>
-              </View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Text style={styles.logoView}>D</Text>
-                <Text style={styles.logotxt}>Dispatch</Text>
-              </View> */}
             </View>
           </View>
           <View
@@ -136,7 +121,6 @@ const Login = ({navigation}) => {
               padding: 16,
               paddingTop: 60,
               borderTopRightRadius: 90,
-              // borderTopLeftRadius:18,
             }}>
             <View style={{paddingVertical: 4}}>
               <Text style={styles.txt}>Username or email address *</Text>
@@ -185,7 +169,7 @@ const Login = ({navigation}) => {
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate('Forgot')}>
                 <Text
-                  style={[styles.txt, {color: '#1b247a', fontWeight: '600'}]}>
+                  style={[styles.txt, {color: '#1b247a'}]}>
                   Forgot Your Password?
                 </Text>
               </TouchableOpacity>
@@ -199,7 +183,7 @@ const Login = ({navigation}) => {
                   paddingVertical: 8,
                   borderRadius: 4,
                 }}>
-                <Text style={{color: '#fff', fontSize: 16}}>LOGIN</Text>
+                <Text style={{color: '#fff', fontSize: 16, fontFamily:Fonts.Poppines_Medium}}>LOGIN</Text>
               </View>
             </TouchableOpacity>
             <View
@@ -214,7 +198,7 @@ const Login = ({navigation}) => {
                   paddingHorizontal: 8,
                   color: '#000',
                   fontSize: 16,
-                  fontWeight: '600',
+                  fontFamily:Fonts.Poppines_Regular
                 }}>
                 Or
               </Text>
@@ -230,7 +214,7 @@ const Login = ({navigation}) => {
                 onPress={() => navigation.navigate('Register')}
                 style={{paddingHorizontal: 4}}>
                 <Text
-                  style={[styles.txt, {color: '#1b247a', fontWeight: '600'}]}>
+                  style={[styles.txt, {color: '#1b247a'}]}>
                   Register
                 </Text>
               </TouchableOpacity>
@@ -244,36 +228,35 @@ const Login = ({navigation}) => {
 export default Login;
 const styles = StyleSheet.create({
   txtInput: {
-    // borderWidth: 1,
     paddingVertical: Platform.OS === 'ios' ? 8 : 4,
-    // borderColor: '#777',
     color: '#000',
     fontSize: 16,
     marginVertical: 4,
     borderRadius: 4,
     paddingHorizontal: 8,
     backgroundColor: '#fff',
+    fontFamily:Fonts.Poppines_Regular
   },
   txt: {
     fontSize: 16,
-    color: '#000',
+    color: Colors.BLACK,
+    fontFamily:Fonts.Poppines_Medium
   },
   errortxt: {
     color: 'red',
     fontSize: 12,
     marginHorizontal: 4,
     marginVertical: -2,
+    fontFamily:Fonts.Poppines_Regular
   },
   logotxt: {
-    color: '#02796e', //'#7fc0b7',
+    color: Colors.APP_COLOR,
     fontSize: 24,
-    fontWeight: '600',
     paddingLeft: 16,
   },
   logoView: {
     backgroundColor: '#625d61',
     color: '#fff',
-    fontWeight: '600',
     fontSize: 18,
     borderRadius: 4,
     alignItems: 'center',
@@ -281,5 +264,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginHorizontal: 4,
     alignSelf: 'flex-start',
+    fontFamily:Fonts.Poppines_Medium, 
   },
 });

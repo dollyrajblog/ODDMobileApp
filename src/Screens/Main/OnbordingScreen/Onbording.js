@@ -4,29 +4,30 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux';
 import {Onbording_Show} from '../../../redux/Action/action';
+import { Colors , Fonts} from '../../../Custom/customStyle';
 const slides = [
   {
     key: 1,
-    title: 'Customise Your \nBussiness',
+    title: 'Customise Your Bussiness',
     text: 'Description.\nSay something cool',
     img: require('../../../assets/images/bussiness.png'),
   },
   {
     key: 2,
-    title: 'Stock by \nBrand',
+    title: 'Stock by Brand',
     text: 'Other cool stuff',
     img: require('../../../assets/images/branding.png'),
   },
   {
     key: 3,
-    title: 'Stock by \nCategory',
+    title: 'Stock by Category',
     text: "I'm already out of descriptions\nLorem ipsum bla bla bla",
     img: require('../../../assets/images/custmer.png'),
   },
 ];
 const Onbording = () => {
   const dispatch = useDispatch();
-  _renderItem = ({item}) => {
+  const renderItem = ({item}) => {
     return (
       <View style={[styles.slide]}>
         <Image
@@ -45,11 +46,11 @@ const Onbording = () => {
   return (
     <AppIntroSlider
       showPrevButton
-      renderItem={_renderItem}
+      renderItem={renderItem}
       data={slides}
       onDone={_onDone}
       activeDotStyle={{
-        backgroundColor: '#22bcb5',
+        backgroundColor: Colors.APP_COLOR,
         height: 8,
         width: 18,
         marginTop: -180,
@@ -61,17 +62,17 @@ const Onbording = () => {
         marginTop: -180,
       }}
       renderPrevButton={() => (
-        <Text style={{fontSize: 16, color: '#00000090', fontWeight: '600'}}>
+        <Text style={{fontSize: 16, color: '#00000080', fontFamily:Fonts.Poppines_Medium}}>
           Skip
         </Text>
       )}
       renderDoneButton={() => (
-        <Text style={{fontSize: 16, color: '#22bcb5', fontWeight: '600'}}>
+        <Text style={{fontSize: 16, color: Colors.APP_COLOR, fontFamily:Fonts.Poppines_Medium}}>
           Done
         </Text>
       )}
       renderNextButton={() => (
-        <Text style={{fontSize: 16, color: '#00000090', fontWeight: '600'}}>
+        <Text style={{fontSize: 16, color: '#00000090', fontFamily:Fonts.Poppines_Medium}}>
           Next
         </Text>
       )}
@@ -91,8 +92,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     padding: 20,
     textAlign: 'center',
-    color: '#02796e',
-    fontWeight: '600',
+    color: Colors.APP_COLOR,
+    fontFamily:Fonts.Poppines_SemiBold
   },
   text: {
     textAlign: 'center',

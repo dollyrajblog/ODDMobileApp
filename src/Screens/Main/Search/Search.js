@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {Colors, Fonts} from '../../../Custom/customStyle';
 const Search = ({navigation}) => {
   return (
     <SafeAreaView>
@@ -32,7 +33,7 @@ export default Search;
 
 const styles = StyleSheet.create({
   topView: {
-    backgroundColor:  "#02796e",//'#7fc0b7',
+    backgroundColor: Colors.APP_THEAM,
     height: 60,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -46,5 +47,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     fontSize: 16,
     color: '#000',
+    fontFamily:Fonts.Poppines_Regular
   },
 });

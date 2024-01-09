@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
-
+import { Colors, Fonts } from '../../Custom/customStyle';
 const CustomHeader = ({navigation, label}) => {
   return (
     <View style={styles.header}>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   header: {
-    backgroundColor: "#02796e",//'#7fc0b7',
+    backgroundColor: Colors.APP_THEAM,
     height: 60,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     fontSize: 18,
     color: '#fff',
-    fontWeight: '600',
+    fontFamily:Fonts.ROBOTO_MEDIUM
   },
 });
