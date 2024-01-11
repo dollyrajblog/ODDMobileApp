@@ -37,7 +37,15 @@ const Home = ({navigation}) => {
   }, []);
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-      <CustomHeader navigation={navigation} label={'Home'} />
+      <CustomHeader
+        navigation={navigation}
+        label={'Home'}
+        showcard={true}
+        showwishlist={true}
+        showsearch={true}
+        showshare={false}
+        isback={false}
+      />
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Find Suppiler */}
         <View style={{height: 125}}>
@@ -164,7 +172,8 @@ const Home = ({navigation}) => {
                   borderWidth: 1,
                   borderColor: Colors.APP_COLOR,
                 }}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('ProductPage')}>
                   <Image
                     source={ImagePath.TSHIRT}
                     style={{height: height * 0.14, marginVertical: 8}}
@@ -227,7 +236,8 @@ const Home = ({navigation}) => {
                   borderWidth: 1,
                   borderColor: '#c3efff',
                 }}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('ProductList')}>
                   <Image
                     source={ImagePath.TSHIRT}
                     style={{height: height * 0.18, marginVertical: 8}}

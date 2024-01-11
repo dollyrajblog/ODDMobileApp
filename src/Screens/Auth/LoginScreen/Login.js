@@ -56,34 +56,12 @@ const Login = ({navigation}) => {
         <View style={{flex: 1, backgroundColor: '#fff'}}>
           <TouchableOpacity
             onPress={() => dispatch(User_Login(true))}
-            style={{
-              alignSelf: 'flex-end',
-              padding: 4,
-              margin: 2,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Text
-              style={{
-                color: Colors.APP_COLOR,
-                fontSize: 16,
-                paddingRight: 4,
-                fontFamily:Fonts.Poppines_Medium
-              }}>
-              Skip
-            </Text>
+            style={styles.iconView}>
+            <Text style={styles.skip}>Skip</Text>
             <Icon name="angle-dobule-right" color={Colors.APP_COLOR} />
           </TouchableOpacity>
-          <Text
-            style={{
-              paddingHorizontal: 16,
-              fontSize: 18,
-              color: Colors.APP_COLOR,
-              fontFamily:Fonts.Poppines_SemiBold
-            }}>
-            Welcome to
-          </Text>
-          <View style={{backgroundColor:'#b4d1cd'}}>
+          <Text style={styles.welcome}>Welcome to</Text>
+          <View style={{backgroundColor: '#b4d1cd'}}>
             <View
               style={{
                 height: height * 0.25,
@@ -102,16 +80,7 @@ const Login = ({navigation}) => {
                 </Text>
                 <Text style={styles.logoView}>D</Text>
               </View>
-              <Text
-                style={{
-                  marginTop: 16,
-                  color: Colors.APP_COLOR,
-                  fontSize: 28,
-                  textAlign: 'center',
-                  fontFamily:Fonts.Poppines_SemiBold
-                }}>
-                Order Design Dispatch
-              </Text>
+              <Text style={styles.appText}>Order Design Dispatch</Text>
             </View>
           </View>
           <View
@@ -168,8 +137,7 @@ const Login = ({navigation}) => {
                 </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate('Forgot')}>
-                <Text
-                  style={[styles.txt, {color: '#1b247a'}]}>
+                <Text style={[styles.txt, {color: '#1b247a'}]}>
                   Forgot Your Password?
                 </Text>
               </TouchableOpacity>
@@ -177,13 +145,20 @@ const Login = ({navigation}) => {
             <TouchableOpacity onPress={() => On_valid()}>
               <View
                 style={{
-                  backgroundColor: '#1b247a', //"#050e61",//'#3399fe',
+                  backgroundColor: '#1b247a',
                   justifyContent: 'center',
                   alignItems: 'center',
                   paddingVertical: 8,
                   borderRadius: 4,
                 }}>
-                <Text style={{color: '#fff', fontSize: 16, fontFamily:Fonts.Poppines_Medium}}>LOGIN</Text>
+                <Text
+                  style={{
+                    color: '#fff',
+                    fontSize: 16,
+                    fontFamily: Fonts.Poppines_Medium,
+                  }}>
+                  LOGIN
+                </Text>
               </View>
             </TouchableOpacity>
             <View
@@ -192,31 +167,20 @@ const Login = ({navigation}) => {
                 alignItems: 'center',
                 marginVertical: 8,
               }}>
-              <View style={{height: 1.5, backgroundColor: 'grey', flex: 1}} />
-              <Text
-                style={{
-                  paddingHorizontal: 8,
-                  color: '#000',
-                  fontSize: 16,
-                  fontFamily:Fonts.Poppines_Regular
-                }}>
-                Or
-              </Text>
-              <View style={{height: 1.5, backgroundColor: 'grey', flex: 1}} />
+              <View style={styles.line} />
+              <Text style={styles.ortxt}>Or</Text>
+              <View style={styles.line} />
             </View>
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'center',
               }}>
-              <Text style={styles.txt}>Don't have a account?</Text>
+              <Text style={styles.txt}>Don't have an account?</Text>
               <TouchableOpacity
                 onPress={() => navigation.navigate('Register')}
                 style={{paddingHorizontal: 4}}>
-                <Text
-                  style={[styles.txt, {color: '#1b247a'}]}>
-                  Register
-                </Text>
+                <Text style={[styles.txt, {color: '#1b247a'}]}>Register</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -235,19 +199,19 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     paddingHorizontal: 8,
     backgroundColor: '#fff',
-    fontFamily:Fonts.Poppines_Regular
+    fontFamily: Fonts.Poppines_Regular,
   },
   txt: {
     fontSize: 16,
     color: Colors.BLACK,
-    fontFamily:Fonts.Poppines_Medium
+    fontFamily: Fonts.Poppines_Medium,
   },
   errortxt: {
     color: 'red',
     fontSize: 12,
     marginHorizontal: 4,
     marginVertical: -2,
-    fontFamily:Fonts.Poppines_Regular
+    fontFamily: Fonts.Poppines_Regular,
   },
   logotxt: {
     color: Colors.APP_COLOR,
@@ -264,6 +228,39 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginHorizontal: 4,
     alignSelf: 'flex-start',
-    fontFamily:Fonts.Poppines_Medium, 
+    fontFamily: Fonts.Poppines_Medium,
+  },
+  line: {height: 1.5, backgroundColor: 'grey', flex: 1},
+  ortxt: {
+    paddingHorizontal: 8,
+    color: '#000',
+    fontSize: 16,
+    fontFamily: Fonts.Poppines_Regular,
+  },
+  iconView: {
+    alignSelf: 'flex-end',
+    padding: 4,
+    margin: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  skip: {
+    color: Colors.APP_COLOR,
+    fontSize: 16,
+    paddingRight: 4,
+    fontFamily: Fonts.Poppines_Medium,
+  },
+  welcome: {
+    paddingHorizontal: 16,
+    fontSize: 18,
+    color: Colors.APP_COLOR,
+    fontFamily: Fonts.Poppines_SemiBold,
+  },
+  appText: {
+    marginTop: 16,
+    color: Colors.APP_COLOR,
+    fontSize: 28,
+    textAlign: 'center',
+    fontFamily: Fonts.Poppines_SemiBold,
   },
 });

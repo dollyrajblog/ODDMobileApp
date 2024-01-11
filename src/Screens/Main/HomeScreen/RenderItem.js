@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
-import { Fonts } from '../../../Custom/customStyle';
+import { Fonts , Colors} from '../../../Custom/customStyle';
 
 const RenderItem = ({item}) => {
   return (
@@ -29,10 +29,11 @@ const styles = StyleSheet.create({
     height: 55,
     width: 55,
     borderRadius: 100,
-    backgroundColor: '#cfe4bf', //#b4d1cd',
+    backgroundColor:"#42c0f520",
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 3,
+    borderColor:Colors.APP_THEAM,
+    borderWidth:1.5
   },
   img: {height: 30, width: 30, tintColor: '#000'},
 });
